@@ -1,0 +1,201 @@
+.chat{
+    flex: 2;
+    border-left: 1px solid #dddddd35;
+    border-right: 1px solid #dddddd35;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .top{
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid #dddddd35;
+
+        .user{
+            display: flex;
+            align-items: center;
+            gap: 20px;
+
+            img{
+                height: 60px;
+                width: 60px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+
+            .texts{
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+
+                span{
+                    font-size: 0.9rem;
+                    font-weight: 500;
+                }
+
+                p{
+                    font-size: 0.8rem;
+                    font-weight: 300;
+                    color: #dddddd;
+                }
+            }
+        }
+
+        .icons{
+            display: flex;
+            gap: 20px;
+
+            img{
+                height: 20px;
+                width: 20px;
+                color: #dddddd;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .center{
+        padding: 20px;
+        flex: 1;
+        margin-top: auto;
+        overflow-y: scroll;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        scrollbar-color: #dddddd35 transparent; /* Scrollbar color */
+
+        .message{
+            max-width: 70%;
+            display: flex;
+            gap: 20px;
+
+            img{
+                    height: 40px;
+                    width: 40px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                }
+
+            .texts{
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                background-color: rgba(17, 30, 52, 0.3);
+
+                img{
+                    width: 100%;
+                    height: 300px;
+                    border-radius: 10px;
+                    object-fit: cover;
+                }
+
+                p{
+                    padding: 10px;
+                    background-color: rgba(17, 30, 52, 0.3);
+                    color: white;
+                    border-radius: 20px;
+                    font-size: 0.9rem;
+                }
+
+                span{
+                    font-size: 0.7rem;
+                    color: #dddddd;
+                }
+            }
+
+            &.own{
+                align-self: flex-end;
+                p{
+                        background-color: #5183fe;
+                        color: white;
+                        border-radius: 10px;
+                }
+            }
+        }
+    }
+
+    .bottom {
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-top: 1px solid #dddddd35;
+        gap: 20px; /* Ensure spacing between icons and input */
+
+
+        .icons {
+            display: flex;
+            gap: 20px; /* Match the gap with the .top div icons */
+            
+            img {
+                height: 20px;
+                width: 20px;
+                color: #dddddd;
+                cursor: pointer;
+            }
+        }
+
+        input {
+                flex: 1;
+                width: auto;
+                padding: 10px;
+                border-radius: 20px;
+                background-color: rgba(10, 19, 41, 0.75);
+                color: white;
+                border: none;
+                outline: none;
+                font-size: 0.9rem; /* Consistent with the top span */
+            }
+        
+        .emoji {
+            display: relative;
+            align-items: center;
+            cursor: pointer;
+
+            img {
+                height: 20px;
+                width: 20px;
+                object-fit: cover;
+            }
+
+            .picker{
+                position: absolute;
+                bottom: 70px;
+                right: 20px;
+                z-index: 1000;
+            }
+        }
+
+        .submitButton {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+
+
+            img {
+                height: 20px;
+                width: 20px;
+                object-fit: cover;
+                color: blanchedalmond;
+            }
+        }
+        .submitButton:hover {
+            background-color: rgba(255, 255, 255, 0.1); /* Lightly highlight the background on hover */
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Add a glow effect */
+        }
+
+        .submitButton:active {
+            background-color: rgba(255, 255, 255, 0.2); /* Darker background when clicked */
+        }
+
+
+    }
+}
