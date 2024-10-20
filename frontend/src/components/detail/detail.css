@@ -1,3 +1,166 @@
-.detail{
+.detail {
     flex: 1;
+    /* padding: 20px; */
+    /* background-color: rgba(10, 19, 41, 0.75); Matching background color */
+    border-radius: 12px;
+    /* backdrop-filter: blur(10px) saturate(100%); */
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .user {
+        padding: 30px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
+        border-bottom: 1px solid #dddddd35;
+    }
+
+    img {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+        font-weight: 500;
+        color: white; /* Ensure the text color is set */
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.5), /* Slight glow effect */
+                    0 0 10px rgba(255, 255, 255, 0.3), /* Bigger glow */
+                    0 0 15px rgba(255, 255, 255, 0.2); /* Softer, more diffused glow */
+    }
+    p {
+        font-size: 0.9rem;
+        font-weight: 300;
+        color: #dddddd;
+    }
+}
+
+.info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow: scroll;
+    scrollbar-color: #dddddd35 transparent; /* Scrollbar color */
+
+}
+
+.option {
+    /* padding: 10px 20px;
+    background-color: rgba(10, 19, 41, 0.85);
+    border-radius: 10px; */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        img {
+            width: 30px;
+            height: 30px;
+            padding: 10px;
+            background-color: rgba(17, 25, 40, 0.3);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+    }
+}
+
+/* Photos Section */
+.photos {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+    
+    .photoItem {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        background-color: rgba(255, 255, 255, 0.05);
+        border-radius: 8px;
+
+        .photoDetail {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            img{
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+
+            span {
+                padding: 5px;
+                color: #ffffff;
+                font-size: 0.9rem;
+            }
+
+        }
+        img {
+            width: 24px;
+            height: 24px;
+        }
+    }
+}
+
+.blockUser {
+    display: flex;
+    justify-content: center;
+}
+
+.blockUser button {
+    padding: 10px 20px;
+    background-color: rgba(207, 57, 87, 0.55); /* Red for block button */
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.blockUser button:hover {
+    background-color: rgba(255, 0, 0, 1); /* Darker red on hover */
+}
+
+.blockUser button:active {
+    background-color: rgba(200, 0, 0, 1); /* Darker red when clicked */
+}
+
+.logout {
+    display: flex;
+    justify-content: center;
+}
+
+.logout button {
+    padding: 10px 20px;
+    background-color: rgba(66, 76, 219, 0.804); /* Red for block button */
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.logout button:hover {
+    background-color: rgb(71, 56, 240); /* Darker red on hover */
+}
+
+.logout button:active {
+    background-color: rgb(44, 17, 195); /* Darker red when clicked */
 }
