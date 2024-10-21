@@ -24,3 +24,10 @@ body{
   display: flex;
   
 }
+
+.loading{
+  padding: 50px;
+  border-radius: 10px;
+  font-size: 36px;
+  background-color: rgba(16, 29, 62, 0.75);
+}
