@@ -4,18 +4,21 @@ import AddUser from "./addUser/AddUser.jsx";
 import "./ChatList.css";
 import { useEffect, useState } from "react";
 import { db } from "../../../lib/firebase.js";
+import { useChatStore } from "../../../lib/chatStore.js";
 
 const ChatList = () => {
     const [addMode, setAddMode] = useState(false);
     const [chats, setChats] = useState([]);
     const { currentUser } = useUserStore();
+    const { chatId, changeChat } = useChatStore();
+    console.log(chatId);
 
     useEffect(() => {
         const unSub = onSnapshot(
             doc(db, "userchats", currentUser.id),
             async (res) => {
                 const items = res.data().chats || []; // Ensure items is defined
-                console.log("Fetched items:", items); // Log items
+                // console.log("Fetched items:", items); // Log items
 
                 const promises = items.map(async (item) => {
                     const userDocRef = doc(db, "users", item.receiverId); // Fetch user data from "users" collection
@@ -28,10 +31,10 @@ const ChatList = () => {
                             return { ...item, user: null };
                         }
                         const userData = userDocSnap.data();
-                        console.log(
-                            `Fetched user data for receiverId ${item.receiverId}:`,
-                            userData
-                        ); // Log userData
+                        // console.log(
+                        //     `Fetched user data for receiverId ${item.receiverId}:`,
+                        //     userData
+                        // ); // Log userData
                         return { ...item, user: userData };
                     } catch (error) {
                         console.error(
@@ -43,7 +46,7 @@ const ChatList = () => {
                 });
 
                 const chatData = await Promise.all(promises);
-                console.log("Final chat data:", chatData); // Log chatData
+                // console.log("Final chat data:", chatData); // Log chatData
                 setChats(chatData);
             },
             (error) => {
@@ -53,6 +56,14 @@ const ChatList = () => {
 
         return () => unSub();
     }, [currentUser.id]);
+
+    const handleSelect = (chat) => () => {
+        if (chat.user) {
+            changeChat(chat.chatId, chat.user);
+        } else {
+            console.error("User data is not available for this chat.");
+        }
+    };
 
     return (
         <div className='chatList'>
@@ -69,7 +80,7 @@ const ChatList = () => {
                 />
             </div>
             {chats.map((chat) => (
-                <div className='item' key={chat.chatId}>
+                <div className='item' key={chat.chatId} onClick={handleSelect(chat)}>
                     <img src={chat.user?.avatar || "./avatar.png"} alt='' />
                     <div className='texts'>
                         <span>{chat.user?.username || "Unknown user"}</span>
